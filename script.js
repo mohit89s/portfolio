@@ -1,4 +1,11 @@
 import projects from "./data/projects.js";
+import personal from "./data/personal.js";
+
+document.getElementById("personal-name").textContent = `Hi, i'm ${personal.name}.`;
+
+document.getElementById("personal-title").textContent = personal.title;
+
+document.getElementById("personal-intro").textContent = personal.introduction;
 
 //find the empty container in our HTML 
 const container = document.getElementById("projects-container");
