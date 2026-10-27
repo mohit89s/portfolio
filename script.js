@@ -1,6 +1,8 @@
 import projects from "./data/projects.js";
 import personal from "./data/personal.js";
+import education from "./data/education.js";
 
+//personal details
 document.getElementById("personal-name").textContent = `Hi, i'm ${personal.name}.`;
 
 document.getElementById("personal-title").textContent = personal.title;
@@ -30,4 +32,28 @@ projects.forEach(function(project) {
     card.append(title, description, technology);
     container.appendChild(card);
 
+});
+
+const educationContainer = document.getElementById("education-container");
+
+education.forEach(function(item) {
+
+    const card = document.createElement("article");
+    card.className = "education-card";
+
+    const degree = document.createElement("h3");
+    degree.textContent = item.degree;
+
+    const institution = document.createElement("p");
+    institution.textContent = item.institution;
+
+    const years = document.createElement("p");
+    years.textContent = `${item.startYear} - ${item.endYear}`;
+
+    const  status = document.createElement("span");
+    status.className = "education-status";
+    status.textContent = item.status;
+
+    card.append(degree, institution, years, status);
+    educationContainer.appendChild(card);
 });
