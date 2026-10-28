@@ -1,6 +1,7 @@
 import projects from "./data/projects.js";
 import personal from "./data/personal.js";
 import education from "./data/education.js";
+import experience from "./data/experience.js";
 
 //personal details
 document.getElementById("personal-name").textContent = `Hi, i'm ${personal.name}.`;
@@ -56,4 +57,31 @@ education.forEach(function(item) {
 
     card.append(degree, institution, years, status);
     educationContainer.appendChild(card);
+});
+
+const experienceContainer = document.getElementById("experience-container");
+
+experience.forEach(function(job) {
+
+    const card = document.createElement("article");
+    card.className = "experience-card";
+
+    const role = document.createElement("h3");
+    role.textContent = job.role;
+
+    const company = document.createElement("p");
+    company.textContent = job.company;
+
+    const type = document.createElement("span");
+    type.className = "experience-type";
+    type.textContent = job.type;
+
+    const dates = document.createElement("p");
+    dates.textContent = `${job.startDate} - ${job.current ? "Present" : job.endDate}`;
+
+    const description = document.createElement("p");
+    description.textContent = job.description;
+
+    card.append(role, company, type, dates, description);
+    experienceContainer.appendChild(card);
 });

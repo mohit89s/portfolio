@@ -209,3 +209,41 @@ footer {
     grid-template-columns: 1fr;
   }  
 }
+
+.experience-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.experience-card {
+  background: #111b2e;
+  border: 1px solid #263247;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.experience-card h3 {
+  color: #ffffff;
+  margin-top: 0;
+}
+
+.experience-card p {
+  color: #94a3b8;
+}
+
+.experience-type {
+  display: inline-block;
+  background: #12332e;
+  color: #6ee7b7;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+  .experience-list {
+    grid-template-columns: 1fr;
+  }
+}
