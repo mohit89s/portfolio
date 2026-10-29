@@ -2,6 +2,7 @@ import projects from "./data/projects.js";
 import personal from "./data/personal.js";
 import education from "./data/education.js";
 import experience from "./data/experience.js";
+import skills from "./data/skills.js";
 
 //personal details
 document.getElementById("personal-name").textContent = `Hi, i'm ${personal.name}.`;
@@ -84,4 +85,29 @@ experience.forEach(function(job) {
 
     card.append(role, company, type, dates, description);
     experienceContainer.appendChild(card);
+});
+
+const skillsContainer = document.getElementById("skills-container");
+
+skills.forEach(function(group){
+    const card = document.createElement("article");
+    card.className = "skill-card";
+
+    const heading = document.createElement("h3");
+    heading.textContent = group.category;
+
+    const skillList = document.createElement("span");
+    skillList.className = "skill-list";
+
+    group.items.forEach(function(skill){
+        const badge = document.createElement("span");
+        badge.className = "skill-badge";
+        badge.textContent = skill;
+
+        skillList.appendChild(badge);
+    });
+
+    card.append(heading, skillList);
+    skillsContainer.appendChild(card);
+
 });

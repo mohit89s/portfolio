@@ -18,6 +18,16 @@ const experience = [
         endDate : "September 2023",
         current : false,
         description : "Developed webpage using wordpress"
+    },
+    {
+        id : 3,
+        company : "N/A",
+        role : "Website Developer",
+        type : "Freelance", 
+        startDate : "October 2026",
+        endDate : "November 2026",
+        current : false,
+        description : "Delivered a lifestyle webpage for showcasing new launching product."
     }
 ];
 
