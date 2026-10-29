@@ -295,3 +295,24 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.project-links a {
+  display: inline-block;
+  padding: 8px 12px;
+  border: 1px solid #34d399;
+  border-radius: 6px;
+  color: #6ee7b7;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.project-links a:hover {
+  background: #12332e;
+}

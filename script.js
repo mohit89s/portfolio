@@ -18,7 +18,6 @@ const container = document.getElementById("projects-container");
 projects.forEach(function(project) {
     
     const card = document.createElement("article");
-
     card.className = "project-card";
 
     const title = document.createElement("h3")
@@ -31,7 +30,33 @@ projects.forEach(function(project) {
     technology.className = "project-tech";
     technology.textContent = project.technology;
 
+    const links = document.createElement("div");
+    links.className = "project-links";
+
+    if (project.github) {
+        const githubLink = document.createElement("a");
+        githubLink.href = project.github;
+        githubLink.textContent = "View Code";
+        githubLink.target = "_blank";
+        githubLink.rel = "noopener noreferrer";
+        links.appendChild(githubLink);
+    }
+
+    if (project.liveDemo) {
+        const demoLink = document.createElement("a");
+        demoLink.href = project.liveDemo; 
+        demoLink.textContent = "Live Demo";
+        demoLink.target = "_blank";
+        demoLink.rel = "noopener noreferrer";
+        links.appendChild(demoLink);
+    }
+
     card.append(title, description, technology);
+
+    if (links.children.length > 0) {
+        card.appendChild(links);
+    }
+    
     container.appendChild(card);
 
 });
