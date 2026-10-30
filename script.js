@@ -17,45 +17,7 @@ const container = document.getElementById("projects-container");
 
 //card for every project
 projects.forEach(function (project) {
-  const card = document.createElement("article");
-  card.className = "project-card";
-
-  const title = document.createElement("h3");
-  title.textContent = project.title;
-
-  const description = document.createElement("p");
-  description.textContent = project.description;
-
-  const technology = document.createElement("span");
-  technology.className = "project-tech";
-  technology.textContent = project.technology;
-
-  const links = document.createElement("div");
-  links.className = "project-links";
-
-  if (project.github) {
-    const githubLink = document.createElement("a");
-    githubLink.href = project.github;
-    githubLink.textContent = "View Code";
-    githubLink.target = "_blank";
-    githubLink.rel = "noopener noreferrer";
-    links.appendChild(githubLink);
-  }
-
-  if (project.liveDemo) {
-    const demoLink = document.createElement("a");
-    demoLink.href = project.liveDemo;
-    demoLink.textContent = "Live Demo";
-    demoLink.target = "_blank";
-    demoLink.rel = "noopener noreferrer";
-    links.appendChild(demoLink);
-  }
-
-  card.append(title, description, technology);
-
-  if (links.children.length > 0) {
-    card.appendChild(links);
-  }
+  const card = createProjectCard(project);
 
   container.appendChild(card);
 });
@@ -179,4 +141,52 @@ if (personal.resume) {
   resumeLink.rel = "noopener noreferrer";
 
   contactContainer.appendChild(resumeLink);
+}
+
+function createProjectCard(project) {
+  const card = document.createElement("article");
+  card.className = "project-card";
+
+  const title = document.createElement("h3");
+  title.textContent = project.title;
+
+  const description = document.createElement("p");
+  description.textContent = project.description;
+
+  const technology = document.createElement("span");
+  technology.className = "project-tech";
+  technology.textContent = project.technology;
+
+  const links = document.createElement("div");
+  links.className = "project-links";
+
+  if (project.github) {
+    const githubLink = document.createElement("a");
+
+    githubLink.href = project.github;
+    githubLink.textContent = "View Code";
+    githubLink.target = "_blank";
+    githubLink.rel = "noopener noreferrer";
+
+    links.appendChild(githubLink);
+  }
+
+  if (project.liveDemo) {
+    const demoLink = document.createElement("a");
+
+    demoLink.href = project.liveDemo;
+    demoLink.textContent = "Live Demo";
+    demoLink.target = "_blank";
+    demoLink.rel = "noopener noreferrer";
+
+    links.appendChild(demoLink);
+  }
+
+  card.append(title, description, technology);
+
+  if (links.children.length > 0) {
+    card.appendChild(links);
+  }
+
+  return card;
 }
