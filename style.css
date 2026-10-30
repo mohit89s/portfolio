@@ -316,3 +316,24 @@ footer {
 .project-links a:hover {
   background: #12332e;
 }
+
+.contact-links {
+  display : flex;
+  flex-wrap: wrap;
+  gap : 12px;
+  margin-top: 24px;
+}
+
+.contact-links a {
+  display: inline-block;
+  padding: 10px 16px;
+  border: 1px solid #34d399;
+  border-radius: 8px;
+  color: #6ee7b7;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.contact-links a:hover {
+  background: #12332e;
+}

@@ -5,134 +5,178 @@ import experience from "./data/experience.js";
 import skills from "./data/skills.js";
 
 //personal details
-document.getElementById("personal-name").textContent = `Hi, i'm ${personal.name}.`;
+document.getElementById("personal-name").textContent =
+  `Hi, i'm ${personal.name}.`;
 
 document.getElementById("personal-title").textContent = personal.title;
 
 document.getElementById("personal-intro").textContent = personal.introduction;
 
-//find the empty container in our HTML 
+//find the empty container in our HTML
 const container = document.getElementById("projects-container");
 
 //card for every project
-projects.forEach(function(project) {
-    
-    const card = document.createElement("article");
-    card.className = "project-card";
+projects.forEach(function (project) {
+  const card = document.createElement("article");
+  card.className = "project-card";
 
-    const title = document.createElement("h3")
-    title.textContent = project.title;
+  const title = document.createElement("h3");
+  title.textContent = project.title;
 
-    const description = document.createElement("p");
-    description.textContent = project.description;
+  const description = document.createElement("p");
+  description.textContent = project.description;
 
-    const technology = document.createElement("span");
-    technology.className = "project-tech";
-    technology.textContent = project.technology;
+  const technology = document.createElement("span");
+  technology.className = "project-tech";
+  technology.textContent = project.technology;
 
-    const links = document.createElement("div");
-    links.className = "project-links";
+  const links = document.createElement("div");
+  links.className = "project-links";
 
-    if (project.github) {
-        const githubLink = document.createElement("a");
-        githubLink.href = project.github;
-        githubLink.textContent = "View Code";
-        githubLink.target = "_blank";
-        githubLink.rel = "noopener noreferrer";
-        links.appendChild(githubLink);
-    }
+  if (project.github) {
+    const githubLink = document.createElement("a");
+    githubLink.href = project.github;
+    githubLink.textContent = "View Code";
+    githubLink.target = "_blank";
+    githubLink.rel = "noopener noreferrer";
+    links.appendChild(githubLink);
+  }
 
-    if (project.liveDemo) {
-        const demoLink = document.createElement("a");
-        demoLink.href = project.liveDemo; 
-        demoLink.textContent = "Live Demo";
-        demoLink.target = "_blank";
-        demoLink.rel = "noopener noreferrer";
-        links.appendChild(demoLink);
-    }
+  if (project.liveDemo) {
+    const demoLink = document.createElement("a");
+    demoLink.href = project.liveDemo;
+    demoLink.textContent = "Live Demo";
+    demoLink.target = "_blank";
+    demoLink.rel = "noopener noreferrer";
+    links.appendChild(demoLink);
+  }
 
-    card.append(title, description, technology);
+  card.append(title, description, technology);
 
-    if (links.children.length > 0) {
-        card.appendChild(links);
-    }
-    
-    container.appendChild(card);
+  if (links.children.length > 0) {
+    card.appendChild(links);
+  }
 
+  container.appendChild(card);
 });
 
 const educationContainer = document.getElementById("education-container");
 
-education.forEach(function(item) {
+education.forEach(function (item) {
+  const card = document.createElement("article");
+  card.className = "education-card";
 
-    const card = document.createElement("article");
-    card.className = "education-card";
+  const degree = document.createElement("h3");
+  degree.textContent = item.degree;
 
-    const degree = document.createElement("h3");
-    degree.textContent = item.degree;
+  const institution = document.createElement("p");
+  institution.textContent = item.institution;
 
-    const institution = document.createElement("p");
-    institution.textContent = item.institution;
+  const years = document.createElement("p");
+  years.textContent = `${item.startYear} - ${item.endYear}`;
 
-    const years = document.createElement("p");
-    years.textContent = `${item.startYear} - ${item.endYear}`;
+  const status = document.createElement("span");
+  status.className = "education-status";
+  status.textContent = item.status;
 
-    const  status = document.createElement("span");
-    status.className = "education-status";
-    status.textContent = item.status;
-
-    card.append(degree, institution, years, status);
-    educationContainer.appendChild(card);
+  card.append(degree, institution, years, status);
+  educationContainer.appendChild(card);
 });
 
 const experienceContainer = document.getElementById("experience-container");
 
-experience.forEach(function(job) {
+experience.forEach(function (job) {
+  const card = document.createElement("article");
+  card.className = "experience-card";
 
-    const card = document.createElement("article");
-    card.className = "experience-card";
+  const role = document.createElement("h3");
+  role.textContent = job.role;
 
-    const role = document.createElement("h3");
-    role.textContent = job.role;
+  const company = document.createElement("p");
+  company.textContent = job.company;
 
-    const company = document.createElement("p");
-    company.textContent = job.company;
+  const type = document.createElement("span");
+  type.className = "experience-type";
+  type.textContent = job.type;
 
-    const type = document.createElement("span");
-    type.className = "experience-type";
-    type.textContent = job.type;
+  const dates = document.createElement("p");
+  dates.textContent = `${job.startDate} - ${job.current ? "Present" : job.endDate}`;
 
-    const dates = document.createElement("p");
-    dates.textContent = `${job.startDate} - ${job.current ? "Present" : job.endDate}`;
+  const description = document.createElement("p");
+  description.textContent = job.description;
 
-    const description = document.createElement("p");
-    description.textContent = job.description;
-
-    card.append(role, company, type, dates, description);
-    experienceContainer.appendChild(card);
+  card.append(role, company, type, dates, description);
+  experienceContainer.appendChild(card);
 });
 
 const skillsContainer = document.getElementById("skills-container");
 
-skills.forEach(function(group){
-    const card = document.createElement("article");
-    card.className = "skill-card";
+skills.forEach(function (group) {
+  const card = document.createElement("article");
+  card.className = "skill-card";
 
-    const heading = document.createElement("h3");
-    heading.textContent = group.category;
+  const heading = document.createElement("h3");
+  heading.textContent = group.category;
 
-    const skillList = document.createElement("span");
-    skillList.className = "skill-list";
+  const skillList = document.createElement("span");
+  skillList.className = "skill-list";
 
-    group.items.forEach(function(skill){
-        const badge = document.createElement("span");
-        badge.className = "skill-badge";
-        badge.textContent = skill;
+  group.items.forEach(function (skill) {
+    const badge = document.createElement("span");
+    badge.className = "skill-badge";
+    badge.textContent = skill;
 
-        skillList.appendChild(badge);
-    });
+    skillList.appendChild(badge);
+  });
 
-    card.append(heading, skillList);
-    skillsContainer.appendChild(card);
-
+  card.append(heading, skillList);
+  skillsContainer.appendChild(card);
 });
+
+const contactContainer = document.getElementById("contact-container");
+
+//email link
+if (personal.email) {
+  const emailLink = document.createElement("a");
+
+  emailLink.href = `mailto:${personal.email}`;
+  emailLink.textContent = "Email Me";
+
+  contactContainer.appendChild(emailLink);
+}
+
+//github link
+if (personal.github) {
+  const githubLink = document.createElement("a");
+
+  githubLink.href = personal.github;
+  githubLink.textContent = "Github";
+  githubLink.target = "_blank";
+  githubLink.rel = "noopener noreferrer";
+
+  contactContainer.appendChild(githubLink);
+}
+
+//linkedin
+if (personal.linkedin) {
+  const linkedinLink = document.createElement("a");
+
+  linkedinLink.href = personal.linkedin;
+  linkedinLink.textContent = "LinkedIn";
+  linkedinLink.target = "_blank";
+  linkedinLink.rel = "noopener noreferrer";
+
+  contactContainer.appendChild(linkedinLink);
+}
+
+//resume
+if (personal.resume) {
+  const resumeLink = document.createElement("a");
+
+  resumeLink.href = personal.resume;
+  resumeLink.textContent = "Download Resume";
+  resumeLink.target = "_blank";
+  resumeLink.rel = "noopener noreferrer";
+
+  contactContainer.appendChild(resumeLink);
+}
